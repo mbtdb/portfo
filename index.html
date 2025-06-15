@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farviz Machitidze</title>
+  <script type="module" src="https://esm.run/@material/web/all"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --md-ref-typeface-plain: 'Roboto', sans-serif;
+
+      /* Forest Green Accent Theme */
+      --md-sys-color-primary: #014421;
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #a9d6b8;
+      --md-sys-color-on-primary-container: #00210e;
+
+      --md-sys-color-secondary: #4e7e5d;
+      --md-sys-color-on-secondary: #ffffff;
+      --md-sys-color-secondary-container: #c9eacb;
+      --md-sys-color-on-secondary-container: #10391f;
+
+      --md-sys-color-background: #f4fdf7;
+      --md-sys-color-on-background: #0b1d13;
+      --md-sys-color-surface: #f4fdf7;
+      --md-sys-color-on-surface: #0b1d13;
+      --md-sys-color-surface-variant: #d8e8dc;
+      --md-sys-color-on-surface-variant: #3e5446;
+      --md-sys-color-outline-variant: #b1cabc;
+    }
+
+    body {
+      font-family: var(--md-ref-typeface-plain);
+      background-color: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-background);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    md-elevated-card {
+      display: block;
+      margin: 2rem auto;
+      padding: 2rem;
+      max-width: 800px;
+      width: 90%;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    }
+    header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .header-content h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .header-content p {
+      margin: 0.5rem 0 0;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+    h2 {
+      color: var(--md-sys-color-primary);
+      font-size: 1.25rem;
+      margin-top: 2rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--md-sys-color-on-surface-variant);
+      padding: 2rem;
+    }
+    a {
+      color: var(--md-sys-color-primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    md-icon {
+      vertical-align: middle;
+      margin-right: 0.25rem;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <md-switch id="darkModeSwitch" selected></md-switch>
+  </div>
+
+  <md-top-app-bar-fixed>
+    <md-top-app-bar>
+      <md-icon slot="navigationIcon">menu</md-icon>
+      <div slot="title">Farviz Portfolio</div>
+    </md-top-app-bar>
+  </md-top-app-bar-fixed>
+
+  <md-elevated-card>
+    <header>
+      <img src="farviz_pfp_circle.png" alt="Farviz profile picture">
+      <div class="header-content">
+        <h1>Farviz Machitidze</h1>
+        <p>just a techy teen with jazz in my veins 🎷</p>
+      </div>
+    </header>
+
+    <section>
+      <h2>About Me</h2>
+      <p>Hey! I'm Farviz — 11th grader, tech tinkerer, and jazz lover. I break things, fix them again, and sometimes make cool stuff. I speak Georgian, Russian, and English. Obsessed with Laufey and haunted horror game ideas.</p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Basic coding (A bit of HTML, and C#)</li>
+        <li>Modding old tech (PSP, PS4, routers)</li>
+        <li>Networking + DNS config (AdGuard Home, router stuff)</li>
+        <li>Game designing hobbyist</li>
+        <li>Trilingual: Georgian, Russian, English</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>WYou can contact me. I don't bite :) :</p>
+      <ul>
+        <li><md-icon>email</md-icon> <a href="mailto:farvizm@mbtdb.com">farvizm@mbtdb.com</a></li>
+        <li><md-icon>code</md-icon> <a href="https://github.com/mbtdb" target="_blank">@mbtdb</a></li>
+        <li><md-icon>chat</md-icon> Discord: @mbtdb</li>
+      </ul>
+    </section>
+  </md-elevated-card>
+
+  <footer>
+    <p>&copy; 2025 Farviz Machitidze. Built with a hpoes and duct tape.</p>
+    <md-filled-tonal-button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Top</md-filled-tonal-button>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('darkModeSwitch');
+    toggle.addEventListener('change', () => {
+      if (toggle.selected) {
+        document.documentElement.style.setProperty('--md-sys-color-background', '#0b1d13');
+        document.documentElement.style.setProperty('--md-sys-color-on-background', '#f4fdf7');
+        document.documentElement.style.setProperty('--md-sys-color-surface', '#0b1d13');
+        document.documentElement.style.setProperty('--md-sys-color-on-surface', '#f4fdf7');
+      } else {
+        document.documentElement.style.setProperty('--md-sys-color-background', '#f4fdf7');
+        document.documentElement.style.setProperty('--md-sys-color-on-background', '#0b1d13');
+        document.documentElement.style.setProperty('--md-sys-color-surface', '#f4fdf7');
+        document.documentElement.style.setProperty('--md-sys-color-on-surface', '#0b1d13');
+      }
+    });
+  </script>
+</body>
+</html>
+
